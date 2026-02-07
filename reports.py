@@ -1,12 +1,10 @@
 def average_gdp(csv_data):
     gdp_by_country = {}
+
     for value in csv_data:
-        if not gdp_by_country.get(value["country"]):
-            gdp_by_country[value["country"]] = [
-                float(value["gdp"]),
-            ]
-        else:
-            gdp_by_country[value["country"]].append(float(value["gdp"]))
+        if not gdp_by_country.get(value["country"], None):
+            gdp_by_country[value["country"]] = []
+        gdp_by_country[value["country"]].append(float(value["gdp"]))
 
     report_data = {"country": [], "gdp": []}
     for country, gdp in gdp_by_country.items():
