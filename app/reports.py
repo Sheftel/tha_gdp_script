@@ -1,8 +1,10 @@
-def average_gdp(csv_data):
-    gdp_by_country = {}
+from typing import Dict, List
 
+
+def average_gdp(csv_data: List[Dict]):
+    gdp_by_country = {}
     for value in csv_data:
-        if not gdp_by_country.get(value["country"], None):
+        if not gdp_by_country.get(value["country"]):
             gdp_by_country[value["country"]] = []
         gdp_by_country[value["country"]].append(float(value["gdp"]))
 
