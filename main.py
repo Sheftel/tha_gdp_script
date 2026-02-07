@@ -13,7 +13,6 @@ def run(files: List[str], report: str):
     except FileNotFoundError as e:
         print(f"File {e} not found")
         return
-
     try:
         report_data, index_range = report_choices[report](csv_data)
     except KeyError as e:
